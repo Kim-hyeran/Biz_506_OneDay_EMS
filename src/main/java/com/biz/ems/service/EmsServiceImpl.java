@@ -26,8 +26,8 @@ public class EmsServiceImpl implements EmsService {
 
 	@Override
 	public EmsVO findById(long ems_id) {
-		
-		return emsDao.findBySeq(ems_id);
+
+		return emsDao.findById(ems_id);
 	}
 
 	@Override
@@ -39,12 +39,12 @@ public class EmsServiceImpl implements EmsService {
 	@Override
 	public int update(EmsVO emsVO) {
 		// TODO Auto-generated method stub
-		return 0;
+		return emsDao.update(emsVO);
 	}
 
 	@Override
 	public int delete(long ems_id) {
-		EmsVO emsVO=emsDao.findBySeq(ems_id);
+		EmsVO emsVO=emsDao.findById(ems_id);
 		
 		String s_file1=emsVO.getS_file1();
 		String s_file2=emsVO.getS_file2();

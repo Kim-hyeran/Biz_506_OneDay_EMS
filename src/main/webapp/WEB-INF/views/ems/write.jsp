@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <style>
     form#write-form {
@@ -83,37 +84,40 @@
 	})
 </script>
 <body>
-    <form id="write-form" method="POST" enctype="multipart/form-data">
+    <form:form id="write-form" method="POST" enctype="multipart/form-data">
+    	<div>
+			<form:input path="ems_id" value="${EMSVO.ems_id}" type="hidden" />
+		</div>
 		<div>
 			<label>작성일자</label>
-			<input name="s_date" type="date">
+			<form:input path="s_date" type="date" />
 		</div>
 		<div>
 			<label>작성시각</label>
-			<input name="s_time" type="time">
+			<form:input path="s_time" type="time" />
 		</div>
 		<div>
 			<label>발신주소</label>
-			<input name="from_email" type="email" placeholder="sample@email.com">
+			<form:input path="from_email" type="email" placeholder="sample@email.com" />
         </div>
         <div>
 			<label>수신주소</label>
-			<input name="to_email" type="email" placeholder="sample@email.com">
+			<form:input path="to_email" type="email" placeholder="sample@email.com" />
 		</div>
 		<div>
 			<label>제목</label>
-			<input name="s_subject" placeholder="제목을 입력하세요">
+			<form:input path="s_subject" placeholder="제목을 입력하세요" />
 		</div>
 		<div id="content-box">
 			<textarea id="s_content" name="s_content" placeholder="내용을 입력하세요"></textarea>
 		</div>
 		<div id="s_file">
-			<input type="file" name="file" accept="image/*">
-			<input type="file" name="file" accept="image/*">
+			<form:input type="file" path="file" accept="image/*" />
+			<form:input type="file" path="file" accept="image/*" />
 		</div>
 
 		<div class="button-box">
 			<button type="button" id="list">취소</button>
 			<button type="submit" id="save">저장</button>
 		</div>
-</form>
+</form:form>

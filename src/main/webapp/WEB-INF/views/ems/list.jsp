@@ -25,19 +25,17 @@
     }
 </style>
 <script>
-/*
 	document.addEventListener("DOMContentLoaded", function() {
 		document.querySelector("table").addEventListener("click", function(event) {
 			let tag_name = event.target.tagName
 			if(tag_name === "TD") {
 				let id=event.target.closest("TR").dataset.seq
 				if(id) {
-					document.location.href = "${rootPath}/ems/detail/" + id
+					document.location.href = "${rootPath}/detail/" + id
 				}
 			}
 		})
 	})
-*/
 </script>
 <table class="table table-striped table-bordered table-hover">
 	<thead>
@@ -57,7 +55,7 @@
 		<tr class="ems-tr" data-seq="${vo.ems_id}">
 			<td>${i.count}</td>
 			<td>${vo.to_email}</td>
-			<td data-seq="${vo.ems_id}" class="bbs-subject">
+			<td data-seq="${vo.ems_id}" class="ems-subject">
 				${vo.s_subject}
 			</td>
 			<td>${vo.s_date}</td>

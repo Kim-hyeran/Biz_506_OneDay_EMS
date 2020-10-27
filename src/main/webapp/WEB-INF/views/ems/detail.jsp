@@ -54,6 +54,23 @@
 		color: #f1f1f1;
 	}
 </style>
+<script>
+	document.addEventListener("DOMContentLoaded", function () {
+		let trash = document.querySelector(".delete")
+		trash.addEventListener("click", function () {
+			if(confirm("삭제할까요?")) {
+				document.location.href="${rootPath}/delete/${EMSVO.ems_id}"
+				return false
+			}
+		})
+		
+		document.addEventListener("DOMContentLoaded", function() {
+			document.querySelector(".update").addEventListener("click", function() {
+				document.location.href="${rootPath}/update/${EMSVO.ems_id}"
+			})
+		})
+	})
+</script>
 <section id="detail-body">
 	<article>
 		<div class="title">${EMSVO.s_subject}</div>

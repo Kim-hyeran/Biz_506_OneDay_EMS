@@ -17,7 +17,7 @@ public interface EmsDao {
 	public List<EmsVO> selectAll();
 	
 	@Select("SELECT * FROM tbl_ems WHERE ems_id = #{ems_id}")
-	public EmsVO findBySeq(long ems_id);
+	public EmsVO findById(long ems_id);
 	
 	@InsertProvider(type=EmsSQL.class, method="ems_insert")
 	@SelectKey(keyProperty = "ems_id", statement="SELECT ems_id.NEXTVAL FROM DUAL", resultType=Long.class, before=true)

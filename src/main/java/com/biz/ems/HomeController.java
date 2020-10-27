@@ -64,4 +64,14 @@ public class HomeController {
 		return "/ems/detail";
 	}
 	
+	@RequestMapping(value="/update/{ems_id}",method=RequestMethod.GET)
+	public String update(@PathVariable("ems_id") String ems_id, Model model) {
+		
+		long long_id = Long.valueOf(ems_id);
+		
+		model.addAttribute("EMSVO",emsService.findById(long_id));
+				
+		return "/ems/list";
+	}
+	
 }
