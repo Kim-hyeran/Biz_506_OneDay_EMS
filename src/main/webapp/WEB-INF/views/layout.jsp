@@ -13,6 +13,7 @@
 <style>
 * {
     font-family: 'Roboto', sans-serif;
+    color: #454545;
     box-sizing: border-box;
     margin: 0;
     padding: 0;

@@ -55,9 +55,7 @@
 		<tr class="ems-tr" data-seq="${vo.ems_id}">
 			<td>${i.count}</td>
 			<td>${vo.to_email}</td>
-			<td data-seq="${vo.ems_id}" class="ems-subject">
-				${vo.s_subject}
-			</td>
+			<td>${vo.s_subject}</td>
 			<td>${vo.s_date}</td>
 			<td>${vo.s_time}</td>
 		</tr>

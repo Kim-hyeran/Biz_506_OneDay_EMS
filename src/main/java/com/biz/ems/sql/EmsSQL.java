@@ -8,7 +8,7 @@ public class EmsSQL {
 		SQL sql=new SQL();
 		
 		sql.INSERT_INTO("tbl_ems");
-		sql.INTO_COLUMNS("ems_id").INTO_VALUES("ems_id.NEXTVAL");
+		sql.INTO_COLUMNS("ems_id").INTO_VALUES("#{ems_id}");
 		sql.INTO_COLUMNS("s_date").INTO_VALUES("#{s_date}");
 		sql.INTO_COLUMNS("s_time").INTO_VALUES("#{s_time}");
 		sql.INTO_COLUMNS("from_email").INTO_VALUES("#{from_email}");

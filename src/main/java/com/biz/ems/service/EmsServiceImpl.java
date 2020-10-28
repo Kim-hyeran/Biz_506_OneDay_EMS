@@ -32,13 +32,13 @@ public class EmsServiceImpl implements EmsService {
 
 	@Override
 	public int insert(EmsVO emsVO) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return emsDao.insert(emsVO);
 	}
 
 	@Override
 	public int update(EmsVO emsVO) {
-		// TODO Auto-generated method stub
+		
 		return emsDao.update(emsVO);
 	}
 

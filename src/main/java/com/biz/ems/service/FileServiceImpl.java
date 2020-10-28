@@ -1,11 +1,9 @@
 package com.biz.ems.service;
 
-import java.io.BufferedOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -16,30 +14,32 @@ import com.biz.ems.model.EmsVO;
 @Service("fileService")
 public class FileServiceImpl implements FileService {
 
+	private final String rootFolder;
+
+	public FileServiceImpl() {
+		rootFolder = "C:/bizwork/workspace/upload";
+	}
+
 	@Override
 	public String fileUp(MultipartFile file) {
-		String fileName = file.getOriginalFilename();
+		if (file == null) {
+			return null;
+		}
 
-		String rootPath = System.getProperty("catalina.home");
+		File dir = new File(rootFolder);
 
-		File dir = new File(rootPath, "tmpFolder");
 		if (!dir.exists()) {
 			dir.mkdirs();
 		}
 
-		File serverSaveFile = new File(dir.getAbsolutePath(), fileName);
+		String strUUID = UUID.randomUUID().toString();
+		String saveFileName = strUUID;
 
-		FileOutputStream outFile;
-		
+		File saveFile = new File(rootFolder, saveFileName);
+
 		try {
-			outFile = new FileOutputStream(serverSaveFile);
-			BufferedOutputStream outStream = new BufferedOutputStream(outFile);
-
-			byte[] fileData = file.getBytes();
-
-			outStream.write(fileData);
-			outStream.close();
-		} catch (FileNotFoundException e) {
+			file.transferTo(saveFile);
+		} catch (IllegalStateException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -47,12 +47,19 @@ public class FileServiceImpl implements FileService {
 			e.printStackTrace();
 		}
 
-		return null;
+		// UUID가 부착된 파일 이름을 Controller
+		return saveFileName;
 	}
 
 	@Override
 	public boolean fileDelete(String s_file1, String s_file2) {
-		// TODO Auto-generated method stub
+		boolean ret = false;
+
+		File deleteFile = new File(rootFolder, s_file1);
+		if (deleteFile.exists()) {
+			ret = deleteFile.delete();
+		}
+
 		return false;
 	}
 

@@ -19,6 +19,7 @@
 	
 	section#detail-body .title {
 		display: inline-block;
+		padding-bottom: 0;
 		font-size: 1.3rem;
 		font-weight: bold;
 		border-bottom: 5px solid #79e5cb;
@@ -63,12 +64,6 @@
 				return false
 			}
 		})
-		
-		document.addEventListener("DOMContentLoaded", function() {
-			document.querySelector(".update").addEventListener("click", function() {
-				document.location.href="${rootPath}/update/${EMSVO.ems_id}"
-			})
-		})
 	})
 </script>
 <section id="detail-body">
@@ -83,6 +78,6 @@
 	</article>
 </section>
 <section id="detail-button">
-	<button class="update">수정</button>
+	<a href="${rootPath}/update/${EMSVO.ems_id}"><button class="update">수정</button></a>
 	<button class="delete">삭제</button>
 </section>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <style>
     form#write-form {
@@ -84,40 +83,38 @@
 	})
 </script>
 <body>
-    <form:form id="write-form" method="POST" enctype="multipart/form-data">
-    	<div>
-			<form:input path="ems_id" value="${EMSVO.ems_id}" type="hidden" />
-		</div>
+    <form id="write-form" method="POST" enctype="multipart/form-data">
 		<div>
 			<label>작성일자</label>
-			<form:input path="s_date" type="date" />
+			<input name="s_date" value="${EMSVO.s_date}" type="date" />
 		</div>
 		<div>
 			<label>작성시각</label>
-			<form:input path="s_time" type="time" />
+			<input name="s_time" value="${EMSVO.s_time}" type="time" />
 		</div>
 		<div>
 			<label>발신주소</label>
-			<form:input path="from_email" type="email" placeholder="sample@email.com" />
+			<input name="from_email" type="email" value="${EMSVO.from_email}" placeholder="sample@email.com" />
         </div>
         <div>
 			<label>수신주소</label>
-			<form:input path="to_email" type="email" placeholder="sample@email.com" />
+			<input name="to_email" type="email" value="${EMSVO.to_email}" placeholder="sample@email.com" />
 		</div>
 		<div>
 			<label>제목</label>
-			<form:input path="s_subject" placeholder="제목을 입력하세요" />
+			<input name="s_subject" value="${EMSVO.s_subject}" placeholder="제목을 입력하세요" />
 		</div>
 		<div id="content-box">
-			<textarea id="s_content" name="s_content" placeholder="내용을 입력하세요"></textarea>
+			<textarea id="s_content" name="s_content" placeholder="내용을 입력하세요">${EMSVO.s_content}</textarea>
 		</div>
 		<div id="s_file">
-			<form:input type="file" path="file" accept="image/*" />
-			<form:input type="file" path="file" accept="image/*" />
+			<!-- file의 name은 VO의 변수명과 다르게 설정해야 한다 -->
+			<input type="file" name="file1" accept="image/*" />
+			<input type="file" name="file2" accept="image/*" />
 		</div>
 
 		<div class="button-box">
 			<button type="button" id="list">취소</button>
 			<button type="submit" id="save">저장</button>
 		</div>
-</form:form>
+</form>
