@@ -73,8 +73,12 @@
 		<div class="from_email">발신 : ${EMSVO.from_email}</div>
 		<div class="to_email">수신 : ${EMSVO.to_email}</div>
 		<div class="content">${EMSVO.s_content}</div>
-		<div class="image">${EMSVO.s_file1}</div>
-		<div class="image">${EMSVO.s_file2}</div>
+		<div class="image">
+			<img src="${rootPath}/files/${EMSVO.s_file1}" width="200px">
+		</div>
+		<div class="image">
+			<img src="${rootPath}/files/${EMSVO.s_file2}" width="200px">
+		</div>
 	</article>
 </section>
 <section id="detail-button">

@@ -9,10 +9,9 @@ import com.biz.ems.model.EmsVO;
 
 public interface FileService {
 	
-	public String fileUp(MultipartFile file);
+	public String fileUp(MultipartFile file);	// 단일 파일 업로드 : 실제 파일 업로드를 수행하는 method
+	public List<String> filesUp(MultipartHttpServletRequest files);	// 복수 파일 업로드 : List로 전달받은 파일 데이터를 쪼개 FileUp method에 전달
 
-	public boolean fileDelete(String s_file1, String s_file2);
-
-	public List<EmsVO> filesUp(MultipartHttpServletRequest files);
+	public int fileDelete(String fileName);
 
 }

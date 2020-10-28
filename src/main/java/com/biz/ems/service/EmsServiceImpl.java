@@ -15,8 +15,8 @@ public class EmsServiceImpl implements EmsService {
 	@Autowired
 	private EmsDao emsDao;
 	
-	@Autowired
-	private FileService fileService;
+//	@Autowired
+//	private FileService fileService;
 
 	@Override
 	public List<EmsVO> selectAll() {
@@ -44,23 +44,13 @@ public class EmsServiceImpl implements EmsService {
 
 	@Override
 	public int delete(long ems_id) {
-		EmsVO emsVO=emsDao.findById(ems_id);
-		
-		String s_file1=emsVO.getS_file1();
-		String s_file2=emsVO.getS_file2();
-		
-		if(s_file1!=null||s_file2!=null) {
-			fileService.fileDelete(s_file1, s_file2);
-		}
 		
 		return emsDao.delete(ems_id);
 	}
 
 	@Override
 	public void insert(EmsVO emsVO, MultipartFile file) {
-		String fileName = fileService.fileUp(file);
-		emsVO.setS_file1(fileName);
-		emsVO.setS_file2(fileName);
+		
 	}
 
 }

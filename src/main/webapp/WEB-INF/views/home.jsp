@@ -12,10 +12,12 @@
 	body {
 		width: 50%;
 		margin: 0 auto;
+		text-align: center;'
 	}
 </style>
 </head>
 <body>
-<h3>나의 홈페이지 방문을 환영합니다</h3>
+<h3>E-Mail Management Application</h3>
+<p>송수신한 E-Mail 내역을 입력하고 관리할 수 있는 사이트입니다.</p>
 </body>
 </html>

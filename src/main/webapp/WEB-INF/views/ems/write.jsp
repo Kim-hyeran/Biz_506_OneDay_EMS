@@ -41,13 +41,17 @@
         border: 1px solid #ddd;
     }
 
-    div#s_file {
+    div#file {
         text-align: center;
     }
 
-    div#s_file input {
+    div#file input {
         border: none;
-        width: 80%;
+        width: 60%;
+    }
+    
+    div#file image {
+    	width: 200px;
     }
 
     div.button-box {
@@ -107,10 +111,12 @@
 		<div id="content-box">
 			<textarea id="s_content" name="s_content" placeholder="내용을 입력하세요">${EMSVO.s_content}</textarea>
 		</div>
-		<div id="s_file">
+		<div id="file">
 			<!-- file의 name은 VO의 변수명과 다르게 설정해야 한다 -->
 			<input type="file" name="file1" accept="image/*" />
+			<img src="${rootPath}/files/${EMSVO.s_file1}">
 			<input type="file" name="file2" accept="image/*" />
+			<img src="${rootPath}/files/${EMSVO.s_file2}">
 		</div>
 
 		<div class="button-box">
