@@ -49,10 +49,6 @@
         border: none;
         width: 60%;
     }
-    
-    div#file image {
-    	width: 200px;
-    }
 
     div.button-box {
         text-align: center;
@@ -114,11 +110,8 @@
 		<div id="file">
 			<!-- file의 name은 VO의 변수명과 다르게 설정해야 한다 -->
 			<input type="file" name="file1" accept="image/*" />
-			<img src="${rootPath}/files/${EMSVO.s_file1}">
 			<input type="file" name="file2" accept="image/*" />
-			<img src="${rootPath}/files/${EMSVO.s_file2}">
 		</div>
-
 		<div class="button-box">
 			<button type="button" id="list">취소</button>
 			<button type="submit" id="save">저장</button>

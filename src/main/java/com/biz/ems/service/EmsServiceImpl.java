@@ -15,6 +15,9 @@ public class EmsServiceImpl implements EmsService {
 	@Autowired
 	private EmsDao emsDao;
 	
+	@Autowired
+	private NaverMailSendService naverMail;
+	
 //	@Autowired
 //	private FileService fileService;
 
@@ -32,6 +35,8 @@ public class EmsServiceImpl implements EmsService {
 
 	@Override
 	public int insert(EmsVO emsVO) {
+		
+		naverMail.sendMail(emsVO);
 		
 		return emsDao.insert(emsVO);
 	}

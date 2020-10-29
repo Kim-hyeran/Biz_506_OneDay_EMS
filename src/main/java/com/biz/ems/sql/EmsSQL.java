@@ -15,6 +15,8 @@ public class EmsSQL {
 		sql.INTO_COLUMNS("to_email").INTO_VALUES("#{to_email}");
 		sql.INTO_COLUMNS("s_subject").INTO_VALUES("#{s_subject}");
 		sql.INTO_COLUMNS("s_content").INTO_VALUES("#{s_content}");
+		sql.INTO_COLUMNS("s_file1").INTO_VALUES("#{s_file1}");
+		sql.INTO_COLUMNS("s_file2").INTO_VALUES("#{s_file2}");
 		
 		return sql.toString();
 	}
@@ -29,6 +31,8 @@ public class EmsSQL {
 		sql.SET("to_email=#{to_email}");
 		sql.SET("s_subject=#{s_subject}");
 		sql.SET("s_content=#{s_content}");
+		sql.SET("s_file1=#{s_file1}");
+		sql.SET("s_file2=#{s_file2}");
 		sql.WHERE("ems_id=#{ems_id}");
 		
 		return sql.toString();

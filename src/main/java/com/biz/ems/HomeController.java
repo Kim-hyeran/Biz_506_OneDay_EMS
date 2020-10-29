@@ -86,7 +86,7 @@ public class HomeController {
 			log.debug("*******************INSERT 수행 결과 : {}개 성공", ret);
 		}
 		
-		model.addAttribute("EMSVO", emsVO);
+//		model.addAttribute("EMSVO", emsVO);
 
 		return "redirect:/list";
 	}
@@ -113,13 +113,14 @@ public class HomeController {
 	
 	@RequestMapping(value="/update/{ems_id}",method=RequestMethod.POST)
 	public String update(EmsVO emsVO, @RequestParam(value="file1", required=false) MultipartFile file1, @RequestParam(value="file2", required=false) MultipartFile file2) {
-		log.debug("UPDATE 요청 데이터 : {}", emsVO.toString());
+		log.debug("*******************UPDATE 요청 데이터 : {}", emsVO.toString());
 		
 		// 1. update할 데이터의 id값 추출
 		long long_id=emsVO.getEms_id();
 		
 		// 2. DB에 저장된 데이터를 id값으로 select하여 추출
 		EmsVO emsOldVO=emsService.findById(long_id);
+		
 		boolean file1_ex=file1.getOriginalFilename().isEmpty();
 		
 		// 3. upload된 file1이 있는지 검사해서 emsVO에 setting
