@@ -1,5 +1,12 @@
 # Oneday Project : Email 관리 어플리케이션
- * 첨부파일 기능(최대 2개)이 존재하는 게시판
+ * 첨부파일 기능(최대 2개)이 존재하는 게시판 만들기
+ 
+## 개발 환경
+ * Spring Tool Suite 3
+ * Oracle Database xe 11
+ * Visual Studio Code
+
+#### Library
 
 ## 기능 수행 내용
 
@@ -30,7 +37,7 @@
 ### gmail SMTP 설정값
 	<property name="host" value="smtp.gmail.com" />
 	<property name="port" value="465" />
-	<property name="username" value="email id" />
+	<property name="username" value="email id@gmail.com" />
 	<property name="password" value="" />
 	<property name="javaMailProperties">
 		<props>
